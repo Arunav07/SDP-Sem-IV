@@ -1,6 +1,7 @@
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "./Components/Header/index.jsx";
 import routesData from "./constants/routesData.js";
 
 const Router = ({ isLoggedIn }) => {
@@ -16,7 +17,8 @@ const Router = ({ isLoggedIn }) => {
   return (
     <BrowserRouter>
         <ToastContainer autoClose={2000} />
-        <Routes>
+       <Header />
+       <Routes>
           {routesData.map((route, index) => {
             let { path, Component, exact, publicRoute } = route;
             return (
