@@ -1,5 +1,6 @@
 import {
-    Home
+    Home,
+    SEARCHMOVIE,
 } from "../Pages"
 
 const routesData = [
@@ -8,6 +9,12 @@ const routesData = [
       Component: Home,
       publicRoute: true,
       exact: true,
+    },
+    {
+      path: "/search/:query",
+      Component: SEARCHMOVIE,
+      publicRoute: true,
+      exact: false,
     }
 ]
 

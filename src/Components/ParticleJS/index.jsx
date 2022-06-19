@@ -17,9 +17,9 @@ const ParticleContainer = () => {
         "autoPlay": true,
         "background": {
           "color": {
-            "value": "#0d0d0d"
+            "value": "#000000"
           },
-          "image": "https://www.freepik.com/free-vector/cup-popcorn-graphic-illustration_2631300.htm#query=popcorn&position=11&from_view=keyword",
+          "image": "",
           "position": "50% 50%",
           "repeat": "no-repeat",
           "size": "cover",
@@ -50,16 +50,16 @@ const ParticleContainer = () => {
               "mode": "push"
             },
             "onDiv": {
-              "selectors": [],
+              "selectors": "#repulse-div",
               "enable": false,
-              "mode": [],
+              "mode": "repulse",
               "type": "circle"
             },
             "onHover": {
               "enable": true,
-              "mode": "grab",
+              "mode": "connect",
               "parallax": {
-                "enable": true,
+                "enable": false,
                 "force": 60,
                 "smooth": 10
               }
@@ -211,7 +211,7 @@ const ParticleContainer = () => {
             }
           },
           "color": {
-            "value": "#ffffff",
+            "value": "random",
             "animation": {
               "h": {
                 "count": 0,
@@ -272,7 +272,7 @@ const ParticleContainer = () => {
             },
             "consent": false,
             "distance": 150,
-            "enable": true,
+            "enable": false,
             "frequency": 1,
             "opacity": 0.4,
             "shadow": {
@@ -339,7 +339,7 @@ const ParticleContainer = () => {
             },
             "random": false,
             "size": false,
-            "speed": 2,
+            "speed": 3,
             "spin": {
               "acceleration": 0,
               "enable": false
@@ -361,22 +361,19 @@ const ParticleContainer = () => {
               "area": 800,
               "factor": 1000
             },
-            "limit": 0,
+            "limit": 150,
             "value": 100
           },
           "opacity": {
             "random": {
-              "enable": true,
+              "enable": false,
               "minimumValue": 0.1
             },
-            "value": {
-              "min": 0.1,
-              "max": 0.5
-            },
+            "value": 0.5,
             "animation": {
               "count": 0,
-              "enable": true,
-              "speed": 3,
+              "enable": false,
+              "speed": 1,
               "decay": 0,
               "sync": false,
               "destroy": "none",
@@ -430,16 +427,16 @@ const ParticleContainer = () => {
           "size": {
             "random": {
               "enable": true,
-              "minimumValue": 1
+              "minimumValue": 10
             },
             "value": {
-              "min": 0.1,
-              "max": 10
+              "min": 10,
+              "max": 15
             },
             "animation": {
               "count": 0,
-              "enable": true,
-              "speed": 20,
+              "enable": false,
+              "speed": 40,
               "decay": 0,
               "sync": false,
               "destroy": "none",

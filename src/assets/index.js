@@ -1,4 +1,4 @@
-import Movie from "./Movie.png";
+import Movie from "./Movie.svg";
 import BGImage from "./BGImage.svg";
 
 export{
