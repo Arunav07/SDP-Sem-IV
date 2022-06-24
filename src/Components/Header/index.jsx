@@ -20,7 +20,7 @@ export default function Header() {
   return (
       <Box>
       <AppBar position="static" className="header">
-        <Toolbar style={{justifyContent: "space-between"}}>
+        <Toolbar style={{justifyContent: "space-between", flexWrap: "wrap"}}>
        <Button onClick={()=>navigate("/")}>
             <img src={Movie} id="header-logo" alt="google logo" />
             <h1 id="header-title">Movie Recommender System</h1>

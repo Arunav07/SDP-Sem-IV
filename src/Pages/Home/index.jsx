@@ -1,9 +1,11 @@
+import axios from 'axios';
 import React from 'react'
 
 const Home = () =>{
+  let Data = []
   return (
-    <div>
-        Home
+    <div className='Home'>
+        
     </div>
   )
 }

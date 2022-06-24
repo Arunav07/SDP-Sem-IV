@@ -21,8 +21,8 @@ html, body{
   cursor: url("./assets/Cursor.svg") 20 20, auto;
 }
 #header-logo{
-  max-width: 120px;
-  max-height: 120px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .SearchPage{

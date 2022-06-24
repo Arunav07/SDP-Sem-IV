@@ -1,5 +1,6 @@
 import {
     Home,
+    Movie,
     SEARCHMOVIE,
 } from "../Pages"
 
@@ -14,8 +15,15 @@ const routesData = [
       path: "/search/:query",
       Component: SEARCHMOVIE,
       publicRoute: true,
-      exact: false,
-    }
+      exact: true,
+    },
+    {
+      path: "/movie/:id",
+      Component: Movie,
+      publicRoute: true,
+      exact: true,
+    },
+  
 ]
 
 export default routesData;

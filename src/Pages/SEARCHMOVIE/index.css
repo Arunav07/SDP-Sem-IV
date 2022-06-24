@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin: 0 auto;
+    margin: 40px auto;
     width: 100%;
     gap: 1rem 0;
 }
@@ -17,6 +17,7 @@
     width: 25vw;
     border-radius: 25px;
     position: relative;
+    cursor: pointer;
 }
 
 .movieCard img{
