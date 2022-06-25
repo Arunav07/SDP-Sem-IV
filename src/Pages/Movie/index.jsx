@@ -37,6 +37,7 @@ const StarFunction = () =>{
             : "https://cdn.dribbble.com/users/634336/screenshots/2246883/media/21b6eeac8c36a79c6b4b2a1930bd89a6.png"
         }
         alt="poster"
+        className="movie_openImage"
       />
       <div className="movieInfo">
         <div className="topDiv">
