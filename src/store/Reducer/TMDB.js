@@ -39,7 +39,7 @@ const FetchMovieReducer = (state = moviesInitialState, action) => {
                 ...state,
                 isLoading: false,
                 isError: false,
-                SearchMovies: action.payload
+                SearchMovies: action.payload.results
             };
         case SEARCH_MOVIE.FAILURE:
             return {

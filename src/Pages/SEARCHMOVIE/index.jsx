@@ -2,33 +2,26 @@ import React, { useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import { useLocation, useNavigate } from "react-router-dom";
 import SearchBar from "../../Components/Search";
-import { SearchTMDBMovies } from "../../Services/SearchTMDB";
+import { connect, useDispatch } from "react-redux";
 import "./index.css";
 import moment from "moment";
 import { searchMovieRequest } from "../../store/Actions";
-const Index = () => {
+import { get } from "lodash";
+
+const Index = ({ Searched }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const movieName = location.pathname.split("/")[2];
-  const [movie, setMovie] = React.useState(localStorage.getItem("Movies"));
+  const dispatch = useDispatch();
+  const [movie, setMovie] = React.useState(Searched?.results);
+
   useEffect(() => {
     setMovie(movieName);
-    searchMovieRequest(movieName)
-    // SearchTMDBMovies(movieName)
-    //   .then((data) => {
-    //     localStorage.setItem("Movies", JSON.stringify(data));
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-  }, [movieName, movie]);
-
-  useEffect(() => {
-      
-  }, [movieName]);
-
-  let Searched = JSON.parse(localStorage.getItem("Movies"));
-  Searched = Searched?.res?.results;
+    dispatch(searchMovieRequest(movieName));
+    return()=>{
+      window.scrollTo(0,0);
+    }
+  }, [movieName, dispatch]);
   Searched?.sort((a, b) => (a?.release_date > b?.release_date ? 1 : -1));
   return (
     <div className="SearchPage">
@@ -70,4 +63,10 @@ const Index = () => {
   );
 };
 
-export default Index;
+const mapStateToProps = (state) => {
+  return {
+    Searched: get(state, "FetchMovieReducer.SearchMovies", []),
+  };
+};
+
+export default connect(mapStateToProps)(Index);
