@@ -29,3 +29,4 @@ export const FetchMovie = async (movie_id) =>{
         }
     }
 }
+

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useDispatch, connect } from "react-redux";
 import { fetchMovieRequest } from "../../store/Actions";
 import { get } from "lodash";
@@ -8,27 +8,26 @@ import {Typography} from "@mui/material"
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import moment from "moment"
-import { useState } from "react";
 const Movie = ({ Movie }) => {
-  const navigate = useNavigate();
   const location = useLocation();
   const movieID = location.pathname.split("/")[2];
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMovieRequest(movieID));
-  }, [movieID]);
+  }, [movieID, dispatch]);
 
   Movie = Array(Movie)[0];
   let intRating = Math.floor(Movie?.vote_average)
 
-const StarFunction = () =>{
-  for(let i=0; i<intRating; i++) {
-    return(
-      <StarIcon />
-    )
-}}
+var array = []
+const Func = () =>{
+  for(let i=0;i<intRating;i++){
+    array.push(i)
+  }
+}
+Func();
 
-  return (
+return (
     <div className="MoviePage">
       <img
         src={
@@ -41,14 +40,18 @@ const StarFunction = () =>{
       />
       <div className="movieInfo">
         <div className="topDiv">
-          <h2>{moment(Movie?.release_date).format("ll")}</h2>
+          <h3>{moment(Movie?.release_date).format("ll")}</h3>
           <div className="">
-            <h2>Rating: {StarFunction()}<StarHalfIcon /></h2>
+            <h2 style={{"display": "flex", "alignItems": "center"}}>Rating: &nbsp;
+              {array?.map((entry, index)=>(
+                <StarIcon style={{color: "rgb(245, 197, 24)", marginLeft: "1%"}} key={index}/>
+              ))}{Movie?.vote_average!==0? <StarHalfIcon style={{color: "rgb(245, 197, 24)"}}/>: null}<pre>{Number(Movie?.vote_average).toFixed(2)}/10</pre></h2>
           </div>
         </div>
         <Typography variant="body1">
           {Movie?.overview}
         </Typography>
+        <h3>Total Runtime: {Math.floor(Movie?.runtime/60)} Hr {Movie?.runtime%60} Mins</h3>
       </div>
     </div>
   );

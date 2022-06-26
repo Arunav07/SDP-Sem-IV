@@ -28,7 +28,7 @@ img.movie_openImage{
     flex-wrap: wrap;
 }
 .topDiv{
-    width: 60vw;
+    width: 70vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
